@@ -1,7 +1,23 @@
 import mysql.connector
+import classes
 import requests
 
-def fill_category():
+MY_DATABASE = mysql.connector.connect(
+    user="jordan", password="Bluechicken0", host="localhost", database="openfoodfact")
+
+MY_CURSOR = MY_DATABASE.cursor(buffered=True)
+
+def show_id_name(cursor):
+    for num, name in cursor.fetchall():
+            print(num, ":", name)
+
+def show_product(cursor):
+    for name, nutriscore, description in cursor.fetchall():
+        print("name:", name)
+        print("description:", description)
+        print("nutriscore:", nutriscore)
+
+def fill_category(cursor):
     new_name = []
     Url_page = "http://fr.openfoodfacts.org/categories&json=1"
     request_page = requests.get(Url_page)
@@ -11,20 +27,20 @@ def fill_category():
     count = 2
     for n in tags_json:
         name_cat.append(n.get('name'))
-    while self.count < 13:
-        for name in self.name_cat:
-            self.new_name.append(name.replace("'", ""))
+    while count < 13:
+        for name in name_cat:
+            new_name.append(name.replace("'", ""))
         cursor.execute("INSERT INTO Category (name)\
-            VALUES ('{}')".format(self.new_name[self.count]))
-        self.count += 1
+            VALUES ('{}')".format(new_name[count]))
+        count += 1
+    return new_name
 
-
-def fill_data_prod(self, cursor):
+def fill_data_prod(cursor, cat):
     count_cat = 0
     while count_cat < 10:
         count_prod = 0
         url_product = "http://fr.openfoodfacts.org/categorie/{}/1.json"\
-            .format(Category.new_name[count_cat + 2])
+            .format(cat[count_cat + 2])
         product_req = requests.get(url_product)
         products = product_req.json()
         products_json = products.get('products')
@@ -62,3 +78,17 @@ def fill_data_prod(self, cursor):
                 new_ingredients[count_prod], count_cat+1))
             count_prod += 1
         count_cat += 1
+
+def fill_sub(prod, cat, score, sub, cursor):
+    cursor.execute("INSERT INTO Substitut \
+    (name, nutriscore, description,\
+        category_id, product_id) SELECT name, nutriscore,\
+        description, category_id, {} FROM Product WHERE\
+        category_id={} AND nutriscore<'{}' AND id={}".format(
+            prod, cat, score, sub))
+    cursor.commit()
+
+if __name__=='__main__':
+    bobo = fill_category(MY_CURSOR)
+    fill_data_prod(MY_CURSOR, bobo)
+    MY_DATABASE.commit()
