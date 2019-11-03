@@ -1,15 +1,28 @@
 # Projet_5_OpenClassroom
 Utilisez les données publiques de l'OpenFoodFacts.
 
-Description du parcours utilisateur
-L'utilisateur est sur le terminal. Ce dernier lui affiche les choix suivants :
+# Description
+Bienvenue sur l'application pur beurre.
 
-1 - Quel aliment souhaitez-vous remplacer ?
-2 - Retrouver mes aliments substitués.
+Cette application vous permet de substituer un produit par un autre plus sain.
+Le calcul sera basé sur le point de nutrition du produit choisi:
+- 'a' étant la meilleur note.
+- 'e' la pire note.
+- 'x' note inconue.
 
-L'utilisateur sélectionne 1. Le programme pose les questions suivantes à l'utilisateur et ce dernier sélectionne les réponses :
+Nous partons du principe que si la note est inconnue, il vaut mieux substitué le produit et ce même si la note est de 'e' car il vaut mieux savoir ce que l'on mange.
 
-Sélectionnez la catégorie. [Plusieurs propositions associées à un chiffre. L'utilisateur entre le chiffre correspondant et appuie sur entrée]
-Sélectionnez l'aliment. [Plusieurs propositions associées à un chiffre. L'utilisateur entre le chiffre correspondant à l'aliment choisi et appuie sur entrée]
-Le programme propose un substitut, sa description, un magasin ou l'acheter (le cas échéant) et un lien vers la page d'Open Food Facts concernant cet aliment.
-L'utilisateur a alors la possibilité d'enregistrer le résultat dans la base de données.
+# Les options
+
+les options de l'application sont:
+
+- Nouvelle recherche (cette option vous permet de rechercher et enregistrer un subsitut)
+- Substitut enregistré (Pour revoir les produits déjà enregistré)
+- Mise à jour des produits (Met à jour les produits disponibles)
+
+# Navigation
+
+Pour naviguer sur l'application il vous suffit de suivre les instructions.
+Vous devrez choisir un numero parmis une liste et appuyer sur entrée.
+vous pourrez quitter l'application en appuyant sur '0' dès que l'option sera proposé.
+
