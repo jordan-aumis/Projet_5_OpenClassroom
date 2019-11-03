@@ -14,6 +14,7 @@ name varchar(200) CHARACTER SET utf8,
 nutriscore char(1) CHARACTER SET utf8,
 description varchar(4000) CHARACTER SET utf8,
 category_id smallint(3) unsigned NOT NULL,
+url varchar(1000) CHARACTER SET utf8,
 PRIMARY KEY (id),
 CONSTRAINT fk_id_category
  FOREIGN KEY (category_id)
@@ -27,6 +28,7 @@ nutriscore char(1) CHARACTER SET utf8,
 description varchar(4000) CHARACTER SET utf8,
 category_id smallint(3) unsigned NOT NULL,
 product_id smallint(3) unsigned NOT NULL,
+url varchar(1000) CHARACTER SET utf8,
 PRIMARY KEY (id),
  FOREIGN KEY (product_id)
 REFERENCES Product(id),
