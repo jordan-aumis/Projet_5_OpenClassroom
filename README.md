@@ -12,6 +12,10 @@ Le calcul sera basé sur le point de nutrition du produit choisi:
 
 Nous partons du principe que si la note est inconnue, il vaut mieux substitué le produit et ce même si la note est de 'e' car il vaut mieux savoir ce que l'on mange.
 
+# Lancer l'application
+
+Pour lancer l'application il vous suffit de taper 'main.py' dans la ligne de commande du terminal
+
 # Les options
 
 les options de l'application sont:
