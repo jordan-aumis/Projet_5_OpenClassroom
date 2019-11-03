@@ -17,7 +17,7 @@ Nous partons du principe que si la note est inconnue, il vaut mieux substitué l
 les options de l'application sont:
 
 - Nouvelle recherche (cette option vous permet de rechercher et enregistrer un subsitut)
-- Substitut enregistré (Pour revoir les produits déjà enregistré)
+- Substitut enregistré (Pour revoir les produits déjà enregistrés)
 - Mise à jour des produits (Met à jour les produits disponibles)
 
 # Navigation

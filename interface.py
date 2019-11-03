@@ -26,18 +26,18 @@ class Interface:
             you can choose what you want to do"""
         print("|***********************************************|")
         print("|*                                             *|")
-        print("|*   Bienvenue sur l'application pur beurre    *|")
+        print("|*   Bienvenue sur l'application Pur Beurre    *|")
         print("|*                                             *|")
         print("|***********************************************|")
         print("Cette application vous permet de substituer un produit\
-    par un autre avec un meilleure nutriscore*.")
+par un autre avec un meilleur Nutriscore*.")
         print("")
-        print("Nutricore* = le score nutritionnelle par lettre, du produit")
+        print("Nutricore* = le score nutritionnel par lettre, du produit")
         print("'a' = Meilleur score")
         print("'e' = le plus mauvais")
-        print("'x' = score inconu ")
+        print("'x' = score inconnu ")
         print("")
-        print("entrez le numero correspondant à votre commande:")
+        print("entrez le numéro correspondant à votre commande:")
         print("1: Nouvelle recherche\n2: Substitut enregistré")
         print("3: Mise à jour des produits")
         print("0: Quitter")
@@ -57,7 +57,7 @@ class Interface:
         database.Data.my_cursor.execute(
             "SELECT name FROM Category WHERE id={}".format(cat))
         cat_name = database.Data.my_cursor.fetchone()[0]
-        print("Choisissez votre produit pour la categorie '{}': \
+        print("Choisissez votre produit pour la catégorie '{}': \
             0: Quitter".format(cat_name))
         print("")
         database.Data.my_cursor.execute(
@@ -70,7 +70,7 @@ class Interface:
         database.Data.my_cursor.execute(
             "SELECT name, nutriscore, description, url\
                     FROM Product WHERE id={}".format(prod))
-        print("Voici les données du produits choisit :")
+        print("Voici les données du produit choisi :")
         print("")
         self.show_product(database.Data.my_cursor)
         print("")
@@ -109,7 +109,7 @@ class Interface:
         """This is the start of the history it will show all search"""
         print(
             "voici l'historique des recherches,\
-                    entrez le numero pour voir les details.  0:Quitter")
+entrez le numero pour voir les details.  0:Quitter")
         database.Data.my_cursor.execute("SELECT id, name FROM Substitut")
         self.show_id_name(database.Data.my_cursor)
 
@@ -146,7 +146,7 @@ class Interface:
                 print("je n'ai pas compris vôtre choix")
                 continue
             if int(val) > number:
-                print("Ce numero est en dehors de la liste, essayez à nouveau.")
+                print("Ce numéro est en dehors de la liste, essayez à nouveau.")
                 continue
             else:
                 return str(val)
