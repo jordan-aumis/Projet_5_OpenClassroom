@@ -85,10 +85,11 @@ class Data:
             ingredients = []
             prod_url = []
             for prod in products_json:
-                product_name.append(prod.get('product_name_fr'))
-                ingredients.append(prod.get('ingredients_text_fr'))
-                nutrition_score.append(prod.get('nutrition_grade_fr'))
-                prod_url.append(prod.get('url'))
+                if prod.get('product_name_fr') is not None and prod.get('product_name_fr') != "":
+                    product_name.append(prod.get('product_name_fr'))
+                    ingredients.append(prod.get('ingredients_text_fr'))
+                    nutrition_score.append(prod.get('nutrition_grade_fr'))
+                    prod_url.append(prod.get('url'))
             new_product_name = []
             new_nutrition_score = []
             new_ingredients = []
